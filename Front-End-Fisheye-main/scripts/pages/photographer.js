@@ -12,3 +12,40 @@ async function getPhotographers() {
     });
     return { photographers };
 }
+
+const urlParams = new URLSearchParams(window.location.search);
+const userId = urlParams.get("id");
+
+function displayPhotographerHeader(){
+
+    const headerNameElement = document.querySelector("#photograph-name");
+    const headerCityElement = document.querySelector("#photograph-city");
+    const headerTaglineElement = document.querySelector("#photograph-tagline");
+    const headerImgElement = document.querySelector("#photograph-img");
+
+    const infoContainer = document.createElement("div");
+    infoContainer.setAttribute("class", "info-photographer");
+    infoContainer.appendChild(headerNameElement);
+    infoContainer.appendChild(headerCityElement);
+    infoContainer.appendChild(headerTaglineElement);
+
+    const contactContainer = document.createElement("div");
+    contactContainer.setAttribute("class", "contact-container");
+    const contact_button = document.querySelector(".contact_button");
+    contactContainer.appendChild(contact_button);
+
+    const imgContainer = document.createElement("div");
+    imgContainer.setAttribute("class", "img-photographer");
+    imgContainer.appendChild(headerImgElement);
+
+    const photographHeader = document.querySelector(".photograph-header");
+    photographHeader.appendChild(infoContainer);
+    photographHeader.appendChild(contactContainer);
+    photographHeader.appendChild(imgContainer);
+
+    headerNameElement.textContent = photographer.name;
+    headerCityElement.textContent = `${photographer.city}, ${photographer.country}`;
+    headerTaglineElement.textContent = photographer.tagline;
+    headerImgElement.setAttribute( "src", `assets/photographers/${photographer.portrait}`);
+    headerImgElement.setAttribute("alt", photographer.name);
+}
