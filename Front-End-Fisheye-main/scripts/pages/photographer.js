@@ -44,8 +44,27 @@ function displayPhotographerHeader(){
     photographHeader.appendChild(imgContainer);
 
     headerNameElement.textContent = photographer.name;
+    //contactModalHeaderElement.textContent = photographer.name;
     headerCityElement.textContent = `${photographer.city}, ${photographer.country}`;
     headerTaglineElement.textContent = photographer.tagline;
-    headerImgElement.setAttribute( "src", `assets/photographers/${photographer.portrait}`);
+    headerImgElement.setAttribute(
+        "src",
+        `assets/photographers/${photographer.portrait}`
+    );
     headerImgElement.setAttribute("alt", photographer.name);
 }
+
+
+async function init() {
+    ({ photographers } = await getPhotographers());
+
+    photographers.forEach((photographerItem) => {
+        if (photographerItem.id == userId) {
+            photographer = photographerItem;
+        }
+    });
+
+    displayPhotographerHeader();
+}
+
+init();
