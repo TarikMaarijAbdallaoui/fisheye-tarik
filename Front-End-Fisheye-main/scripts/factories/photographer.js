@@ -27,12 +27,14 @@ function photographerFactory(data) {
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
 
-        a.appendChild(article);
+        
         article.appendChild(img);
+        article.appendChild(h2);
+        a.appendChild(article);
         article.appendChild(origin);  
         article.appendChild(tag);
-        article.appendChild(prc)
-        article.appendChild(h2);
+        article.appendChild(prc);
+        
       
         return (a);
     }
