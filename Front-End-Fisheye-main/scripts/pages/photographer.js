@@ -44,19 +44,14 @@ function displayPhotographerHeader() {
     photographHeader.appendChild(imgContainer);
 
     headerNameElement.textContent = photographer.name;
-    //contactModalHeaderElement.textContent = photographer.name;
     headerCityElement.textContent = `${photographer.city}, ${photographer.country}`;
     headerTaglineElement.textContent = photographer.tagline;
-    headerImgElement.setAttribute(
-        "src",
-        `assets/photographers/${photographer.portrait}`
-    );
+    headerImgElement.setAttribute("src", `assets/photographers/${photographer.portrait}`);
     headerImgElement.setAttribute("alt", photographer.name);
 }
 
 function displayPhotographerMedia(photographer) {
     const main = document.querySelector("main");
-
     const mediaSection = document.createElement("section");
     mediaSection.setAttribute("class", "photographer-medias");
 
@@ -66,19 +61,16 @@ function displayPhotographerMedia(photographer) {
         fetch(newMedia.mediaUrl)
             .then((result) => {
                 if (result.ok) {
-                    const mediaTemplate = `
-            <article class="photograph-media-item" >
-              <a " class="photograph-media-item_top">
-            ${newMedia.mediaCard}
-              </a>
-            </article>
-          `;
+                    const mediaTemplate = 
+                      `<article class="photograph-media-item" >
+                       <a " class="photograph-media-item_top"> ${newMedia.mediaCard} </a>
+                       </article>`;
                     mediaSection.insertAdjacentHTML("beforeend", mediaTemplate);
                 }
             })
             .catch((err) => console.error(err));
     });
-
+    main.appendChild(mediaSection);
 }
 
 
@@ -92,6 +84,7 @@ async function init() {
     });
 
     displayPhotographerHeader();
+    displayPhotographerMedia(photographer);
 }
 
 init();
