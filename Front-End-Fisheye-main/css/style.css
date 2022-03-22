@@ -124,3 +124,27 @@ h1 {
   }
 
   /* de la ligne 80 à 123 style du HEADER de la page de chaque photographe*/
+
+  .photographer-medias {
+    width: 90%;
+    max-width: 1240px;
+    padding-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .photograph-media-item {
+    width: 350px;
+    height: 350px;
+  }
+
+  .photograph-media-item img,
+  .photograph-media-item video {
+    width: 350px;
+    height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+
+  /* de la ligne 128 à 148 organiser le style du travail de chaque photographe */

@@ -63,7 +63,7 @@ function displayPhotographerMedia(photographer) {
                 if (result.ok) {
                     const mediaTemplate = 
                     `<article class = "photograph-media-item">
-                    <a class = "photograph-media-item_top">
+                    <a href = "#", class = "photograph-media-item_top">
                      ${newMedia.mediaCard},
                     </a>
                     </article> `;
