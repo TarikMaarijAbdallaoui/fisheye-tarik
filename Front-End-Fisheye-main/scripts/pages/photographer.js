@@ -54,7 +54,12 @@ function displayPhotographerHeader(){
     headerImgElement.setAttribute("alt", photographer.name);
 }
 
-function displayPhotographerMedia(photographer){}
+function displayPhotographerMedia(photographer){
+    const main = document.querySelector("main");
+  
+    const mediaSection = document.createElement("section");
+    mediaSection.setAttribute("class", "photographer-medias");
+}
 
 
 async function init() {
