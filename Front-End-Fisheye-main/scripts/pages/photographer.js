@@ -16,7 +16,7 @@ async function getPhotographers() {
 const urlParams = new URLSearchParams(window.location.search);
 const userId = urlParams.get("id");
 
-function displayPhotographerHeader(){
+function displayPhotographerHeader() {
 
     const headerNameElement = document.querySelector("#photograph-name");
     const headerCityElement = document.querySelector("#photograph-city");
@@ -54,16 +54,31 @@ function displayPhotographerHeader(){
     headerImgElement.setAttribute("alt", photographer.name);
 }
 
-function displayPhotographerMedia(photographer){
+function displayPhotographerMedia(photographer) {
     const main = document.querySelector("main");
-  
+
     const mediaSection = document.createElement("section");
     mediaSection.setAttribute("class", "photographer-medias");
 
     photographer.medias.forEach(async (media) => {
         const newMedia = new PhotographerMediaFactory(media);
+
+        fetch(newMedia.mediaUrl)
+            .then((result) => {
+                if (result.ok) {
+                    const mediaTemplate = `
+            <article class="photograph-media-item" >
+              <a " class="photograph-media-item_top">
+            ${newMedia.mediaCard}
+              </a>
+            </article>
+          `;
+                    mediaSection.insertAdjacentHTML("beforeend", mediaTemplate);
+                }
+            })
+            .catch((err) => console.error(err));
     });
-    
+
 }
 
 
