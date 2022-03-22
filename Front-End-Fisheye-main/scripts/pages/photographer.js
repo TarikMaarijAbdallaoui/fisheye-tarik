@@ -59,6 +59,11 @@ function displayPhotographerMedia(photographer){
   
     const mediaSection = document.createElement("section");
     mediaSection.setAttribute("class", "photographer-medias");
+
+    photographer.medias.forEach(async (media) => {
+        const newMedia = new PhotographerMediaFactory(media);
+    });
+    
 }
 
 
