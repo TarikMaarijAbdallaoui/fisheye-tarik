@@ -54,6 +54,8 @@ function displayPhotographerHeader(){
     headerImgElement.setAttribute("alt", photographer.name);
 }
 
+function displayPhotographerMedia(photographer){}
+
 
 async function init() {
     ({ photographers } = await getPhotographers());
