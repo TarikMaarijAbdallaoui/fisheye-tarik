@@ -148,3 +148,8 @@ h1 {
   }
 
   /* de la ligne 128 à 148 organiser le style du travail de chaque photographe */
+
+  .titleMedia {
+      color: #901C1C;
+    font-size: 20px;
+  }

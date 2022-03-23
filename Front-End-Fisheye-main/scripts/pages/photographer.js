@@ -61,13 +61,16 @@ function displayPhotographerMedia(photographer) {
         fetch(newMedia.mediaUrl)
             .then((result) => {
                 if (result.ok) {
-                    const mediaTemplate = 
-                    `<article class = "photograph-media-item">
+                    const mediaTemplate =
+                        `<article class = "photograph-media-item">
                     <a href = "#", class = "photograph-media-item_top">
-                     ${newMedia.mediaCard},
+                     ${newMedia.mediaCard}
                     </a>
+                    <div clas s= "photograph-media-item_bottom">
+                       <p class = "titleMedia"> ${newMedia._title} </p>
+                    </div>
                     </article> `;
-                mediaSection.insertAdjacentHTML("beforeend", mediaTemplate);
+                    mediaSection.insertAdjacentHTML("beforeend", mediaTemplate);
                 }
             })
             .catch((err) => console.error(err));
