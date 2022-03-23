@@ -92,6 +92,12 @@ function filterMedias(){
     option2.innerText= 'Date';
     let option3 = document.createElement('option');
     option3.innerText= 'Titre';
+
+    selection.appendChild(option1)
+    selection.appendChild(option2)
+    selection.appendChild(option3)
+
+    filters.appendChild(selection)
 }
 
 async function init() {
