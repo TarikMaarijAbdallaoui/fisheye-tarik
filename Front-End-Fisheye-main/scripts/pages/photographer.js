@@ -84,6 +84,14 @@ function filterMedias(){
     filters.classList.add('filters');
     filters.insertAdjacentHTML('afterbegin', '<p>Trier par:</p>');
     main.appendChild(filters);
+
+    let selection = document.createElement('select');
+    let option1 = document.createElement('option');
+    option1.innerText= 'Popularité';
+    let option2 = document.createElement('option');
+    option2.innerText= 'Date';
+    let option3 = document.createElement('option');
+    option3.innerText= 'Titre';
 }
 
 async function init() {
