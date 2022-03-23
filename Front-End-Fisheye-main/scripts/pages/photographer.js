@@ -78,6 +78,13 @@ function displayPhotographerMedia(photographer) {
     main.appendChild(mediaSection);
 }
 
+function filterMedias(){
+    let main = document.querySelector('main');
+    let filters = document.createElement('section');
+    filters.classList.add('filters');
+    filters.insertAdjacentHTML('afterbegin', '<p>Trier par:</p>');
+    main.appendChild(filters);
+}
 
 async function init() {
     ({ photographers } = await getPhotographers());
@@ -93,3 +100,5 @@ async function init() {
 }
 
 init();
+
+filterMedias();
