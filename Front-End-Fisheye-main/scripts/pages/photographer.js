@@ -62,13 +62,19 @@ function displayPhotographerMedia(photographer) {
             .then((result) => {
                 if (result.ok) {
                     const mediaTemplate =
-                        `<article class = "photograph-media-item">
-                    <a href = "#", class = "photograph-media-item_top">
-                     ${newMedia.mediaCard}
-                    </a>
-                    <div clas s= "photograph-media-item_bottom">
-                       <p class = "titleMedia"> ${newMedia._title} </p>
-                    </div>
+                   `<article class = "photograph-media-item">
+                       <a href = "#", class = "photograph-media-item_top">
+                         ${newMedia.mediaCard}
+                       </a>
+                       <div clas s= "photograph-media-item_bottom">
+                          <p class = "titleMedia"> ${newMedia._title} </p>
+                          <div>
+                              <span class="photograph-media-item_bottom-likes"></span>
+                              <a href="#!">
+                                  <i class="fa-solid fa-heart"></i>
+                              </a>
+                          </div>
+                       </div>
                     </article> `;
                     mediaSection.insertAdjacentHTML("beforeend", mediaTemplate);
                 }
