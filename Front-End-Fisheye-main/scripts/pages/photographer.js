@@ -69,7 +69,9 @@ function displayPhotographerMedia(photographer) {
                        <div class= "photograph-media-item_bottom">
                           <p class = "titleMedia"> ${newMedia._title} </p>
                           <div>
-                              <span class="photograph-media-item_bottom-likes"></span>
+                              <span class="photograph-media-item_bottom-likes">
+                                  ${newMedia._totalLikes}
+                              </span>
                               <a href="#!">
                                   <i class="fa-solid fa-heart"></i>
                               </a>
