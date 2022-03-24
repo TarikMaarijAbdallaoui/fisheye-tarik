@@ -66,7 +66,7 @@ function displayPhotographerMedia(photographer) {
                        <a href = "#", class = "photograph-media-item_top">
                          ${newMedia.mediaCard}
                        </a>
-                       <div clas s= "photograph-media-item_bottom">
+                       <div class= "photograph-media-item_bottom">
                           <p class = "titleMedia"> ${newMedia._title} </p>
                           <div>
                               <span class="photograph-media-item_bottom-likes"></span>
