@@ -52,6 +52,7 @@ function displayPhotographerHeader() {
 }
 
 // La fonction qui nous ramène les Medias de chaque photographe depuis: factories/photographerMedia.js
+
 function displayPhotographerMedia(photographer) {
     const main = document.querySelector("main");
     const mediaSection = document.createElement("section");
@@ -64,7 +65,7 @@ function displayPhotographerMedia(photographer) {
             .then((result) => {
                 if (result.ok) {
                     const mediaTemplate =
-                   `<article class = "photograph-media-item">
+                   `<article class = "photograph-media-item" data-id="${newMedia._id}">
                        <a href = "#", class = "photograph-media-item_top">
                          ${newMedia.mediaCard}
                        </a>
@@ -74,7 +75,7 @@ function displayPhotographerMedia(photographer) {
                               <span class="photograph-media-item_bottom-likes">
                                   ${newMedia._totalLikes}
                               </span>
-                              <a href="#!">
+                              <a href = "#!" onclick = "incrementMediaLike(${newMedia._id})">
                                   <i class="fa-solid fa-heart"></i>
                               </a>
                           </div>
@@ -137,7 +138,27 @@ function filterMedias(){
 // la fonction qui incrémente/décrémente les likes
     function incrementMediaLike(mediaLikedId) {
         let mediaLiked = [];
+
+        photographer.medias.forEach((media) => {
+            if (media.id === mediaLikedId){
+                if (!mediaLiked.includes(mediaLikedId)){
+                    media.likes++;
+                    document.querySelector (`[data-id='${mediaLikedId}'] .photograph-media-item_bottom-likes`).
+                    innerHTML = media.likes; mediaLiked.push(mediaLikedId);
+                } else {
+                    media.likes--;
+                    document.querySelector(
+                    `[data-id='${mediaLikedId}'] .photograph-media-item_bottom-likes`
+                    ).innerHTML = media.likes;
+                    mediaLiked.pop(mediaLikedId);
+                }
+                
+                displayPhotographerInfos();    
+            }
+        });    
     }
+
+
 async function init() {
     ({ photographers } = await getPhotographers());
 
