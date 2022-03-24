@@ -136,9 +136,10 @@ function filterMedias(){
     }
 
 // la fonction qui incrémente/décrémente les likes
-    function incrementMediaLike(mediaLikedId) {
-        let mediaLiked = [];
 
+    let mediaLiked = [];
+    function incrementMediaLike(mediaLikedId) {
+        
         photographer.medias.forEach((media) => {
             if (media.id === mediaLikedId){
                 if (!mediaLiked.includes(mediaLikedId)){
