@@ -199,3 +199,33 @@ h1 {
   .photograph-media-item_bottom div {
     display: flex;
   }
+
+  /* a partir de la ligne 204 donner du style au Rectangle total likes */
+
+  .sum-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 34px;
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    border-radius: 5px 5px 0 0;
+    width: 376px;
+    height: 60px;
+    background-color: #db8876;
+    color: #000000;
+  }
+
+  #photograph-infos-price {
+    color: #000000;
+    font-size: 20px;
+  }
+
+  #photograph-infos-likes {
+    color: #000000;
+    font-size: 20px;
+  }
+
+  #photograph-infos-likes .fa-solid, .fas{
+    color: #000000;
+  }
