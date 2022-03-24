@@ -16,6 +16,7 @@ async function getPhotographers() {
 const urlParams = new URLSearchParams(window.location.search);
 const userId = urlParams.get("id");
 
+// la fonction qui contrôle le header de la page individuelle
 function displayPhotographerHeader() {
 
     const headerNameElement = document.querySelector("#photograph-name");
@@ -50,6 +51,7 @@ function displayPhotographerHeader() {
     headerImgElement.setAttribute("alt", photographer.name);
 }
 
+// La fonction qui nous ramène les Medias de chaque photographe depuis: factories/photographerMedia.js
 function displayPhotographerMedia(photographer) {
     const main = document.querySelector("main");
     const mediaSection = document.createElement("section");
@@ -86,6 +88,7 @@ function displayPhotographerMedia(photographer) {
     main.appendChild(mediaSection);
 }
 
+// la fonction qui contrôle l'ordre des Medias
 function filterMedias(){
     let main = document.querySelector('main');
     let filters = document.createElement('section');
@@ -131,6 +134,10 @@ function filterMedias(){
         mainControl.appendChild(info);
     }
 
+// la fonction qui incrémente/décrémente les likes
+    function incrementMediaLike(mediaLikedId) {
+        let mediaLiked = [];
+    }
 async function init() {
     ({ photographers } = await getPhotographers());
 
