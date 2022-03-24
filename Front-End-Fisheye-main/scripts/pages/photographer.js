@@ -111,6 +111,15 @@ function filterMedias(){
 // Rectangle total likes
     function displayPhotographerInfos(){
         let mainControl = document.querySelector("main");
+
+        let info = document.createElement("div");
+        info.classList.add("sum-info");
+
+        let totalLikes = document.createElement("span");
+        totalLikes.setAttribute("id", "photograph-infos-likes");
+
+        let infoPrice = document.createElement("span");
+        infoPrice.setAttribute("id", "photograph-infos-price");
     }
 
 async function init() {
