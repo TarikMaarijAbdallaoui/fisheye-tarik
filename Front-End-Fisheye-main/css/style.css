@@ -186,3 +186,16 @@ h1 {
     color: #901C1C;
     padding-top: 8px;
   }
+
+  .photograph-media-item_bottom-likes {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    color: #901c1c;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  .photograph-media-item_bottom div {
+    display: flex;
+  }
