@@ -108,6 +108,11 @@ function filterMedias(){
     filters.appendChild(selection)
 }
 
+// Rectangle total likes
+    function displayPhotographerInfos(){
+        let mainControl = document.querySelector("main");
+    }
+
 async function init() {
     ({ photographers } = await getPhotographers());
 
