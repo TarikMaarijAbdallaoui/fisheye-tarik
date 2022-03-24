@@ -109,7 +109,7 @@ function filterMedias(){
 }
 
 // Rectangle total likes
-    function displayPhotographerInfos(){
+    function displayPhotographerInfos() {
         let mainControl = document.querySelector("main");
 
         let info = document.createElement("div");
@@ -120,6 +120,15 @@ function filterMedias(){
 
         let infoPrice = document.createElement("span");
         infoPrice.setAttribute("id", "photograph-infos-price");
+
+        const totalMediasLikes = () =>
+        photographer.medias.reduce((acc, curr) => acc + curr.likes, 0);
+        totalLikes.innerHTML = `${totalMediasLikes()} <i class="fa-solid fa-heart"></i>`;
+        infoPrice.textContent = `${photographer.price} €/jour`;
+
+        info.appendChild(totalLikes);
+        info.appendChild(infoPrice);
+        mainControl.appendChild(info);
     }
 
 async function init() {
@@ -133,6 +142,7 @@ async function init() {
 
     displayPhotographerHeader();
     displayPhotographerMedia(photographer);
+    displayPhotographerInfos();
 }
 
 init();
