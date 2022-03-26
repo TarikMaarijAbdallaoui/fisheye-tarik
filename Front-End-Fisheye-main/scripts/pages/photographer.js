@@ -56,6 +56,7 @@ function displayPhotographerHeader() {
 function displayPhotographerMedia(photographer) {
     const main = document.querySelector("main");
     const mediaSection = document.createElement("section");
+    mediaSection.setAttribute("id", "media-section");
     mediaSection.setAttribute("class", "photographer-medias");
 
     photographer.medias.forEach(async (media) => {
@@ -111,6 +112,46 @@ function filterMedias(){
     filters.appendChild(selection);
 
     header.insertAdjacentElement("afterend", filters)
+
+    selection.setAttribute("onchange", "functionalityFilter(this.value)");
+}
+
+// la fonction qui rend operative l'ordre des media
+
+function functionalityFilter(option){
+    let medias = document.querySelector("#media-section");
+    medias.remove();
+
+    let titleFilter = () =>
+      photographer.medias.sort((media1, media2) => {
+        if (media1.title < media2.title) return -1;
+        if (media1.title > media2.title) return 1;
+  
+        return 0;
+      });
+
+    let dateFilter = () =>
+      photographer.medias.sort(
+        (media1, media2) =>
+          new Date(media1.date).getTime() - new Date(media2.date).getTime()
+      );
+
+    let popularityFilter = () =>
+      photographer.medias.sort((media1, media2) => media2.likes - media1.likes);
+
+    switch (option) {
+        case "title":
+          titleFilter();
+          break;
+        case "date":
+          dateFilter();
+          break;
+        default:
+          popularityFilter();
+        
+    }
+
+    displayPhotographerMedia(photographer);
 }
 
 // Rectangle total likes
