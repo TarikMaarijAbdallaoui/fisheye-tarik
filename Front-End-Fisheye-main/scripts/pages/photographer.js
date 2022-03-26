@@ -91,25 +91,26 @@ function displayPhotographerMedia(photographer) {
 
 // la fonction qui contrôle l'ordre des Medias
 function filterMedias(){
-    let main = document.querySelector('main');
+    let header = document.querySelector(".photograph-header");
+
     let filters = document.createElement('section');
     filters.classList.add('filters');
     filters.insertAdjacentHTML('afterbegin', '<p>Trier par:</p>');
     main.appendChild(filters);
 
     let selection = document.createElement('select');
-    let option1 = document.createElement('option');
-    option1.innerText= 'Popularité';
-    let option2 = document.createElement('option');
-    option2.innerText= 'Date';
-    let option3 = document.createElement('option');
-    option3.innerText= 'Titre';
+    let filterOpions = { popularity: "Popularité", date: "Date", title: "Titre" };
 
-    selection.appendChild(option1)
-    selection.appendChild(option2)
-    selection.appendChild(option3)
+    for (let option in filterOpions) {
+        let optionSelect = document.createElement("option");
+        optionSelect.setAttribute("value", option);
+        optionSelect.innerHTML = `<div class="option">${filterOpions[option]}</div>`;
+        selection.appendChild(optionSelect);
+      }
 
-    filters.appendChild(selection)
+    filters.appendChild(selection);
+
+    header.insertAdjacentElement("afterend", filters)
 }
 
 // Rectangle total likes
