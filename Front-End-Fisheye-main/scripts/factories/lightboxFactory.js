@@ -30,3 +30,5 @@ function setMediaModal(mediaId, mediaType, mediaUrl, mediaTitle){
 
   actualMediaId = mediaId;
 }
+
+function mediaModalSlide(slideAction){}
