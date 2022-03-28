@@ -5,7 +5,8 @@ function setMediaModal(mediaId, mediaType, mediaUrl, mediaTitle){
   let modalImgElement = document.querySelector(".media-modal-img img");
   let modalVideoElement = document.querySelector(".media-modal-img video");
 
-  
+  const modalTitleElement = document.querySelector(".media-modal-title p");
+  modalTitleElement.textContent = mediaTitle;
 
   switch (mediaType) {
     case "image":
@@ -87,3 +88,7 @@ function mediaModalSlide(slideAction){
     }
   }
 }
+
+// l'événement pour la navigation lightbox avec les flèches du clavier
+
+document.addEventListener("keydown", (event) =>{});
