@@ -1,4 +1,7 @@
 //Mettre le code JavaScript lié à la page photographer.html
+
+let indexNumber = 0
+
 async function getPhotographers() {
     const respons = await fetch("data/photographers.json");
 
@@ -18,6 +21,7 @@ const userId = urlParams.get("id");
 
 // la fonction qui contrôle le header de la page individuelle
 function displayPhotographerHeader() {
+    indexNumber += 1
 
     const headerNameElement = document.querySelector("#photograph-name");
     const headerCityElement = document.querySelector("#photograph-city");
@@ -25,17 +29,20 @@ function displayPhotographerHeader() {
     const headerImgElement = document.querySelector("#photograph-img");
 
     const infoContainer = document.createElement("div");
+    infoContainer.setAttribute("tabindex", `${indexNumber += 1}`)
     infoContainer.setAttribute("class", "info-photographer");
     infoContainer.appendChild(headerNameElement);
     infoContainer.appendChild(headerCityElement);
     infoContainer.appendChild(headerTaglineElement);
 
     const contactContainer = document.createElement("div");
+    contactContainer.setAttribute("tabindex", `${indexNumber += 1}`)
     contactContainer.setAttribute("class", "contact-container");
     const contact_button = document.querySelector(".contact_button");
     contactContainer.appendChild(contact_button);
 
     const imgContainer = document.createElement("div");
+    imgContainer.setAttribute("tabindex", `${indexNumber += 1}`)
     imgContainer.setAttribute("class", "img-photographer");
     imgContainer.appendChild(headerImgElement);
 
@@ -67,18 +74,18 @@ function displayPhotographerMedia(photographer) {
                 if (result.ok) {
                     const mediaTemplate =
                    `<article class = "photograph-media-item" data-id="${newMedia._id}">
-                       <a href = "#",  onclick="displayMediaModal(); setMediaModal('${newMedia._id}',
+                       <a tabindex="${indexNumber += 1}" href = "#",  onclick="displayMediaModal(); setMediaModal('${newMedia._id}',
                          '${newMedia.mediaType}', '${newMedia.mediaUrl}', '${
                           newMedia._title}')" class = "photograph-media-item_top">
                          ${newMedia.mediaCard}
                        </a>
                        <div class= "photograph-media-item_bottom">
-                          <p class = "titleMedia"> ${newMedia._title} </p>
+                          <p tabindex="${indexNumber += 1}" class = "titleMedia"> ${newMedia._title} </p>
                           <div>
                               <span class="photograph-media-item_bottom-likes">
                                   ${newMedia._totalLikes}
                               </span>
-                              <a href = "#!" onclick = "incrementMediaLike(${newMedia._id})">
+                              <a tabindex="${indexNumber += 1}" href = "#!" onclick = "incrementMediaLike(${newMedia._id})">
                                   <i class="fa-solid fa-heart"></i>
                               </a>
                           </div>
@@ -98,10 +105,11 @@ function filterMedias(){
 
     let filters = document.createElement('section');
     filters.classList.add('filters');
-    filters.insertAdjacentHTML('afterbegin', '<p>Trier par:</p>');
+    filters.insertAdjacentHTML('afterbegin', '<p tabindex="${indexNumber += 1}">Trier par:</p>');
     main.appendChild(filters);
 
     let selection = document.createElement('select');
+    selection.setAttribute("tabindex", `${indexNumber += 1}`)
     let filterOpions = { popularity: "Popularité", date: "Date", title: "Titre" };
 
     for (let option in filterOpions) {
@@ -295,9 +303,9 @@ async function init() {
     });
 
     displayPhotographerHeader();
+    filterMedias();
     displayPhotographerMedia(photographer);
     displayPhotographerInfos();
-    filterMedias();
     createMediaModal()
 }
 

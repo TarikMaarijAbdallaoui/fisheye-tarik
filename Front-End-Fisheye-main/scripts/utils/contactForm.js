@@ -20,6 +20,7 @@ async function displayModal(){
     const prenomLabel = document.createElement("label");
     prenomLabel.innerText = "Prénom";
     const inputPrenom = document.createElement("input");
+    inputPrenom.setAttribute("tabindex", `${indexNumber += 1}`)
     inputPrenom.setAttribute("type", "text");
     prenomDiv.appendChild(prenomLabel);
     prenomDiv.appendChild(inputPrenom);
@@ -28,6 +29,7 @@ async function displayModal(){
     const nomLabel = document.createElement("label");
     nomLabel.innerText = "Nom";
     const inputNom = document.createElement("input");
+    inputNom.setAttribute("tabindex", `${indexNumber += 1}`)
     inputNom.setAttribute("type", "text");
     nomDiv.appendChild(nomLabel);
     nomDiv.appendChild(inputNom);
@@ -36,6 +38,7 @@ async function displayModal(){
     const emailLabel = document.createElement("label");
     emailLabel.innerText = "Email";
     const inputEmail = document.createElement("input");
+    inputEmail.setAttribute("tabindex", `${indexNumber += 1}`)
     inputEmail.setAttribute("type", "email");
     emailDiv.appendChild(emailLabel);
     emailDiv.appendChild(inputEmail);
@@ -44,11 +47,13 @@ async function displayModal(){
     const textLabel = document.createElement("label");
     textLabel.innerText = "Message";
     const textarea = document.createElement("textarea");
+    textarea.setAttribute("tabindex", `${indexNumber += 1}`)
     textarea.setAttribute("rows", "5");
     textDiv.appendChild(textLabel);
     textDiv.appendChild(textarea);
 
     const button = document.createElement("button");
+    button.setAttribute("tabindex", `${indexNumber += 1}`)
     button.setAttribute("class", "contact_button");
     button.innerText = "Envoyer";
 

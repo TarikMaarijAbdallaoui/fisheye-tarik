@@ -1,10 +1,15 @@
+let indexNumber = 0
+
 function photographerFactory(data) {
     const { id, name, portrait, city, country, price, tagline } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
     function getUserCardDOM() {
+        indexNumber += 1
+
         const a = document.createElement('a');
+        a.setAttribute("tabindex", `${(indexNumber + 1)}`)
         a.setAttribute('href', `photographer.html?&id=${id}`);
         a.style.textDecoration = 'none';
 
