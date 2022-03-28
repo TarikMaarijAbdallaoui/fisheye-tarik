@@ -75,4 +75,15 @@ function mediaModalSlide(slideAction){
 
     setMediaModal(nextMedia.id, nextMediaType, nextMediaUrl, nextMedia.title);
   }
+
+  if (slideAction) {
+    switch (slideAction) {
+      case -1:
+        prevSlide();
+        break;
+      default:
+        nextSlide();
+        break;
+    }
+  }
 }
