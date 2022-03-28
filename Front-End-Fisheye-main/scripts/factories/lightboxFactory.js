@@ -31,4 +31,13 @@ function setMediaModal(mediaId, mediaType, mediaUrl, mediaTitle){
   actualMediaId = mediaId;
 }
 
-function mediaModalSlide(slideAction){}
+function mediaModalSlide(slideAction){
+
+    /* l'obtention du chemin de photographerId, media*/
+    getNextAssetPath = (photographerId, media) =>
+    `assets/photographers/${photographerId}/${media}`;
+
+  const actualMediaIndex = photographer.medias.findIndex((media) => {
+    if (media.id === actualMediaId) return true;
+  });
+}
