@@ -264,6 +264,42 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .media-modal-title {
+    font-size: 18px;
+  }
+
+  .media-modal-close {
+    position: absolute;
+    font-size: 3.5em;
+    top: -27px;
+    right: -38px;
+  }
+
+  .media-modal .prev {
+    left: -38px;
+  }
+  .media-modal .next {
+    right: -38px;
+  }
+
+  .media-modal .prev,
+  .media-modal .next {
+    position: absolute;
+    font-size: 2.2em;
+    margin: 5px;
+    top: 50%;
+  }
+
+  .media-modal .prev,
+  .media-modal .next,
+  .media-modal-close {
+    cursor: pointer;
+  }
+
+  .media-modal img,
+  .media-modal video {
     max-height: 80vh;
     width: 100%;
     object-fit: contain;
