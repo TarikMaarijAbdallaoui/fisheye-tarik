@@ -6,4 +6,14 @@ async function displayModal(){
         photographer = photographerItem;
       }
     });
+
+    const modal = document.getElementById("contact_modal");
+    modal.style.display = "flex";
+    modal.style.position = "fixed";
 }
+
+function closeModal() {
+    const modal = document.getElementById("contact_modal");
+    modal.style.display = "none";
+  }
+  
