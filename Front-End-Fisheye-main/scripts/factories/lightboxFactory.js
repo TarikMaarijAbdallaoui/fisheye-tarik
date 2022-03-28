@@ -57,4 +57,22 @@ function mediaModalSlide(slideAction){
 
     setMediaModal(nextMedia.id, nextMediaType, nextMediaUrl, nextMedia.title);
   }
+
+  function prevSlide() {
+    const prevMediaIndex = actualMediaIndex - 1;
+
+    let nextMedia = photographer.medias[prevMediaIndex];
+
+    if (!nextMedia)
+      nextMedia = photographer.medias[photographer.medias.length - 1];
+
+    const nextMediaType = nextMedia.image ? "image" : "video";
+
+    const nextMediaUrl = getNextAssetPath(
+      nextMedia.photographerId,
+      nextMedia.image || nextMedia.video
+    );
+
+    setMediaModal(nextMedia.id, nextMediaType, nextMediaUrl, nextMedia.title);
+  }
 }
