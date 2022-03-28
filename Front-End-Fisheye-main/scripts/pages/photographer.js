@@ -237,7 +237,15 @@ function functionalityFilter(option){
     video.setAttribute("muted", "");
     video.style.display = "none";
 
+    const mediaModalClose = document.createElement("span");
+    mediaModalClose.classList.add("media-modal-close");
+    mediaModalClose.setAttribute("title", "Close");
+    mediaModalClose.setAttribute("onclick", "closeMediaModal()");
+    mediaModalClose.innerHTML = "&times"; /*unicode*/
+
     mediaModalImgContainer.appendChild(image);
+    mediaModalImgContainer.appendChild(video);
+    mediaModalImgContainer.appendChild(mediaModalClose);
     mediaModalImg.appendChild(mediaModalImgContainer);
     mediaModalContent.appendChild(mediaModalImg);
     mediaModal.appendChild(mediaModalContent);
