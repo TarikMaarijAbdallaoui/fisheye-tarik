@@ -91,4 +91,7 @@ function mediaModalSlide(slideAction){
 
 // l'événement pour la navigation lightbox avec les flèches du clavier
 
-document.addEventListener("keydown", (event) =>{});
+document.addEventListener("keydown", (event) =>{
+    const isMediaModalActive = () => mediaModal.style.display !== "none";
+    const key = event.key;
+});
