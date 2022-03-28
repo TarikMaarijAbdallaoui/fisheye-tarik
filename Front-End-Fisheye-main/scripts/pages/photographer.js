@@ -243,9 +243,16 @@ function functionalityFilter(option){
     mediaModalClose.setAttribute("onclick", "closeMediaModal()");
     mediaModalClose.innerHTML = "&times"; /*unicode*/
 
+    const prevMediaBtn = document.createElement("a");
+    prevMediaBtn.classList.add("prev");
+    prevMediaBtn.setAttribute("title", "Previous image");
+    prevMediaBtn.setAttribute("onclick", "mediaModalSlide(-1)");
+    prevMediaBtn.innerHTML = "<";
+
     mediaModalImgContainer.appendChild(image);
     mediaModalImgContainer.appendChild(video);
     mediaModalImgContainer.appendChild(mediaModalClose);
+    mediaModalImgContainer.appendChild(prevMediaBtn);
     mediaModalImg.appendChild(mediaModalImgContainer);
     mediaModalContent.appendChild(mediaModalImg);
     mediaModal.appendChild(mediaModalContent);
