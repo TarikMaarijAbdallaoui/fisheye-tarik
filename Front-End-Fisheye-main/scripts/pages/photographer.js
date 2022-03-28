@@ -226,7 +226,17 @@ function functionalityFilter(option){
     const mediaModalImgContainer = document.createElement("div");
     mediaModalImgContainer.classList.add("media-modal-img-container");
 
-      main.insertAdjacentElement("afterend", mediaModal);
+    const image = document.createElement("img");
+    image.setAttribute("src", "");
+    image.setAttribute("alt", "");
+    image.style.display = "none";
+
+    mediaModalImgContainer.appendChild(image);
+    mediaModalImg.appendChild(mediaModalImgContainer);
+    mediaModalContent.appendChild(mediaModalImg);
+    mediaModal.appendChild(mediaModalContent);
+
+    main.insertAdjacentElement("afterend", mediaModal);
     }
 
 function displayMediaModal() {
