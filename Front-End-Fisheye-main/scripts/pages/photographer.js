@@ -225,7 +225,18 @@ function functionalityFilter(option){
   
     const mediaModalImgContainer = document.createElement("div");
     mediaModalImgContainer.classList.add("media-modal-img-container");
+
+      main.insertAdjacentElement("afterend", mediaModal);
     }
+
+function displayMediaModal() {
+    let mediaModal = document.querySelector("#media_modal");
+        mediaModal.style.display = "flex";
+    }
+
+function closeMediaModal() {
+        mediaModal.style.display = "none";
+      }
 
 
 // la function init
