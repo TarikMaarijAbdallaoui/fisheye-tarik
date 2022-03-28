@@ -201,6 +201,23 @@ function functionalityFilter(option){
         });    
     }
 
+// la fonction du lightbox
+
+    function createMediaModal(){
+        const main = document.getElementById("main");
+  
+    if (document.getElementById("media_modal")) {
+      document.getElementById("media_modal").remove();
+    }
+  
+    mediaModal = document.createElement("div");
+    mediaModal.setAttribute("id", "media_modal");
+    mediaModal.classList.add("media-modal");
+    mediaModal.style.display = "none";
+    }
+
+
+// la function init
 
 async function init() {
     ({ photographers } = await getPhotographers());
@@ -214,8 +231,9 @@ async function init() {
     displayPhotographerHeader();
     displayPhotographerMedia(photographer);
     displayPhotographerInfos();
+    filterMedias();
+    createMediaModal()
 }
 
 init();
 
-filterMedias();
