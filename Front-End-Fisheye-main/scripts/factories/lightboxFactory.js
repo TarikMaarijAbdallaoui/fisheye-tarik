@@ -40,4 +40,21 @@ function mediaModalSlide(slideAction){
   const actualMediaIndex = photographer.medias.findIndex((media) => {
     if (media.id === actualMediaId) return true;
   });
+
+  function nextSlide() {
+    const nextMediaIndex = actualMediaIndex + 1;
+
+    let nextMedia = photographer.medias[nextMediaIndex];
+
+    if (!nextMedia) nextMedia = photographer.medias[0];
+
+    const nextMediaType = nextMedia.image ? "image" : "video";
+
+    const nextMediaUrl = getNextAssetPath(
+      nextMedia.photographerId,
+      nextMedia.image || nextMedia.video
+    );
+
+    setMediaModal(nextMedia.id, nextMediaType, nextMediaUrl, nextMedia.title);
+  }
 }
