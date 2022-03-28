@@ -249,10 +249,17 @@ function functionalityFilter(option){
     prevMediaBtn.setAttribute("onclick", "mediaModalSlide(-1)");
     prevMediaBtn.innerHTML = "<";
 
+    const nextMediaBtn = document.createElement("a");
+    nextMediaBtn.classList.add("next");
+    nextMediaBtn.setAttribute("title", "Next image");
+    nextMediaBtn.setAttribute("onclick", "mediaModalSlide(1)");
+    nextMediaBtn.innerHTML = ">";
+
     mediaModalImgContainer.appendChild(image);
     mediaModalImgContainer.appendChild(video);
     mediaModalImgContainer.appendChild(mediaModalClose);
     mediaModalImgContainer.appendChild(prevMediaBtn);
+    mediaModalImgContainer.appendChild(nextMediaBtn);
     mediaModalImg.appendChild(mediaModalImgContainer);
     mediaModalContent.appendChild(mediaModalImg);
     mediaModal.appendChild(mediaModalContent);
