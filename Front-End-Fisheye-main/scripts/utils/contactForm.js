@@ -23,7 +23,40 @@ async function displayModal(){
     inputPrenom.setAttribute("type", "text");
     prenomDiv.appendChild(prenomLabel);
     prenomDiv.appendChild(inputPrenom);
+
+    const nomDiv = document.createElement("div");
+    const nomLabel = document.createElement("label");
+    nomLabel.innerText = "Nom";
+    const inputNom = document.createElement("input");
+    inputNom.setAttribute("type", "text");
+    nomDiv.appendChild(nomLabel);
+    nomDiv.appendChild(inputNom);
+
+    const emailDiv = document.createElement("div");
+    const emailLabel = document.createElement("label");
+    emailLabel.innerText = "Email";
+    const inputEmail = document.createElement("input");
+    inputEmail.setAttribute("type", "email");
+    emailDiv.appendChild(emailLabel);
+    emailDiv.appendChild(inputEmail);
+
+    const textDiv = document.createElement("div");
+    const textLabel = document.createElement("label");
+    textLabel.innerText = "Message";
+    const textarea = document.createElement("textarea");
+    textarea.setAttribute("rows", "5");
+    textDiv.appendChild(textLabel);
+    textDiv.appendChild(textarea);
+
+    const button = document.createElement("button");
+    button.setAttribute("class", "contact_button");
+    button.innerText = "Envoyer";
+
     form.appendChild(prenomDiv);
+    form.appendChild(nomDiv);
+    form.appendChild(emailDiv);
+    form.appendChild(textDiv);
+    form.appendChild(button);
 }
 
 function closeModal() {
