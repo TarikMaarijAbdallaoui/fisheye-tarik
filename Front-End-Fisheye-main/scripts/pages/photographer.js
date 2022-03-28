@@ -255,11 +255,17 @@ function functionalityFilter(option){
     nextMediaBtn.setAttribute("onclick", "mediaModalSlide(1)");
     nextMediaBtn.innerHTML = ">";
 
+    const mediaTitle = document.createElement("div");
+    mediaTitle.classList.add("media-modal-title");
+    const p = document.createElement("p");
+    mediaTitle.appendChild(p);
+
     mediaModalImgContainer.appendChild(image);
     mediaModalImgContainer.appendChild(video);
     mediaModalImgContainer.appendChild(mediaModalClose);
     mediaModalImgContainer.appendChild(prevMediaBtn);
     mediaModalImgContainer.appendChild(nextMediaBtn);
+    mediaModalImgContainer.appendChild(mediaTitle);
     mediaModalImg.appendChild(mediaModalImgContainer);
     mediaModalContent.appendChild(mediaModalImg);
     mediaModal.appendChild(mediaModalContent);
