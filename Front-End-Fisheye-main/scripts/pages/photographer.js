@@ -231,6 +231,12 @@ function functionalityFilter(option){
     image.setAttribute("alt", "");
     image.style.display = "none";
 
+    const video = document.createElement("video");
+    video.setAttribute("src", "");
+    video.setAttribute("controls", "");
+    video.setAttribute("muted", "");
+    video.style.display = "none";
+
     mediaModalImgContainer.appendChild(image);
     mediaModalImg.appendChild(mediaModalImgContainer);
     mediaModalContent.appendChild(mediaModalImg);
