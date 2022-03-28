@@ -214,6 +214,15 @@ function functionalityFilter(option){
     mediaModal.setAttribute("id", "media_modal");
     mediaModal.classList.add("media-modal");
     mediaModal.style.display = "none";
+
+    const mediaModalContent = document.createElement("div");
+    mediaModalContent.classList.add("media-modal-content");
+  
+    const mediaModalImg = document.createElement("div");
+    mediaModalImg.classList.add("media-modal-img");
+  
+    const mediaModalImgContainer = document.createElement("div");
+    mediaModalImgContainer.classList.add("media-modal-img-container");
     }
 
 
