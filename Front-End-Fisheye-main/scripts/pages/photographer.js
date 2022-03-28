@@ -67,7 +67,9 @@ function displayPhotographerMedia(photographer) {
                 if (result.ok) {
                     const mediaTemplate =
                    `<article class = "photograph-media-item" data-id="${newMedia._id}">
-                       <a href = "#", class = "photograph-media-item_top">
+                       <a href = "#",  onclick="displayMediaModal(); setMediaModal('${newMedia._id}',
+                         '${newMedia.mediaType}', '${newMedia.mediaUrl}', '${
+                          newMedia._title}')" class = "photograph-media-item_top">
                          ${newMedia.mediaCard}
                        </a>
                        <div class= "photograph-media-item_bottom">

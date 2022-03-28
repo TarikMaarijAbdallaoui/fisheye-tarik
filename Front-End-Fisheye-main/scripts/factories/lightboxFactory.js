@@ -1,4 +1,6 @@
 
+let actualMediaId;
+
 function setMediaModal(mediaId, mediaType, mediaUrl, mediaTitle){
   let modalImgElement = document.querySelector(".media-modal-img img");
   let modalVideoElement = document.querySelector(".media-modal-img video");
@@ -27,6 +29,5 @@ function setMediaModal(mediaId, mediaType, mediaUrl, mediaTitle){
       throw new Error("Unknown media type format");
   }
 
-  let actualMediaId;
   actualMediaId = mediaId;
 }
