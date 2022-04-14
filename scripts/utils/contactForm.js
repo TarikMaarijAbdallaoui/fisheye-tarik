@@ -67,8 +67,13 @@ async function displayModal(){
     const textarea = document.createElement("textarea");
     textarea.setAttribute("tabindex", `${indexNumber += 1}`)
     textarea.setAttribute("rows", "5");
+    textarea.setAttribute("id", "message");
+    const errorMessage = document.createElement("span");
+    errorMessage.setAttribute("id", "message_error");
+    errorMessage.style.color = "red";
     textDiv.appendChild(textLabel);
     textDiv.appendChild(textarea);
+    textDiv.appendChild(errorMessage);
 
     const button = document.createElement("button");
     button.setAttribute("tabindex", `${indexNumber += 1}`)
@@ -108,6 +113,7 @@ function validate(){
   const prenom = document.getElementById("prenom");
   const nom = document.getElementById("nom");
   const emailVerif = document.getElementById("email");
+  const message = document.getElementById("message");
 
    // check prenom
   if(
@@ -160,6 +166,22 @@ function validate(){
     emailVerif.style.border = "0px solid red";
   }
 
+   // check message
+   if (
+    message.value === "" ||
+    message.value.length < 12 
+  ) {
+    document.getElementById("message_error").innerHTML =
+      "Veuillez entrer au moins 12 caractères.";
+    message.focus();
+    message.style.border = "2px solid #fe142f";
+
+    errorVerif = true;
+  } else {
+    document.getElementById("message_error").innerHTML = "";
+    message.style.border = "0px solid red";
+  }
+
   // message de confirmation
   if (errorVerif === true) {
     return false;
@@ -168,6 +190,7 @@ function validate(){
       prenom:  prenom.value,
       nom:  nom.value,
       email: emailVerif.value,
+      message: message.value,
     }
     return true;
   }  
