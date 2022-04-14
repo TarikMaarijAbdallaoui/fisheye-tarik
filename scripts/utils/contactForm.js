@@ -52,8 +52,13 @@ async function displayModal(){
     const inputEmail = document.createElement("input");
     inputEmail.setAttribute("tabindex", `${indexNumber += 1}`)
     inputEmail.setAttribute("type", "email");
+    inputEmail.setAttribute("id", "email");
+    const errorEmail = document.createElement("span");
+    errorEmail.setAttribute("id", "email_error");
+    errorEmail.style.color = "red";
     emailDiv.appendChild(emailLabel);
     emailDiv.appendChild(inputEmail);
+    emailDiv.appendChild(errorEmail);
     
 
     const textDiv = document.createElement("div");
@@ -102,6 +107,7 @@ function validate(){
 
   const prenom = document.getElementById("prenom");
   const nom = document.getElementById("nom");
+  const emailVerif = document.getElementById("email");
 
    // check prenom
   if(
@@ -129,12 +135,29 @@ function validate(){
     document.getElementById("nom_error").innerHTML =
     "Veuillez entrer au moins 2 caractères valables.";
     nom.focus(); nom.style.border = "2px solid #fe142f";
-    
+
     errorVerif = true;
 
   } else {
     document.getElementById("nom_error").innerHTML = "";
     nom.style.border = "0px solid red";
+  }
+
+  // check email
+  if (
+    emailVerif.value == null ||
+    emailVerif.value == "" ||
+    !emailVerif.value.match(regex2)
+  ) {
+    document.getElementById("email_error").innerHTML =
+      "Veuillez entrer une adresse Email valable.";
+    emailVerif.focus();
+    emailVerif.style.border = "2px solid #fe142f";
+
+    errorVerif = true;
+  } else {
+    document.getElementById("email_error").innerHTML = "";
+    emailVerif.style.border = "0px solid red";
   }
 
   // message de confirmation
@@ -143,7 +166,8 @@ function validate(){
   } else {
     let messageData = {
       prenom:  prenom.value,
-      /*nom:  nom.value,*/
+      nom:  nom.value,
+      email: emailVerif.value,
     }
     return true;
   }  
