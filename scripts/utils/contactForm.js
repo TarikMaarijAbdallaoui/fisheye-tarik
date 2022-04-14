@@ -15,6 +15,8 @@ async function displayModal(){
     formTitle.innerHTML = `Contactez-moi <br> ${photographer.name}`;
 
     const form = document.getElementById("contact-form");
+
+    form.innerHTML = "";
     
     const prenomDiv = document.createElement("div");
     const prenomLabel = document.createElement("label");
@@ -22,8 +24,13 @@ async function displayModal(){
     const inputPrenom = document.createElement("input");
     inputPrenom.setAttribute("tabindex", `${indexNumber += 1}`)
     inputPrenom.setAttribute("type", "text");
+    inputPrenom.setAttribute("id", "prenom");
+    const errorPrenom = document.createElement("span");
+    errorPrenom.setAttribute("id", "prenom_error");
+    errorPrenom.style.color = "red";
     prenomDiv.appendChild(prenomLabel);
     prenomDiv.appendChild(inputPrenom);
+    prenomDiv.appendChild(errorPrenom);
 
     const nomDiv = document.createElement("div");
     const nomLabel = document.createElement("label");
