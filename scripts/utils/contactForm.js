@@ -109,10 +109,19 @@ function validate(){
   document.getElementById("prenom_error").innerHTML = "";
   prenom.style.border = "0px solid red";
   }
+
+  // message de confirmation
+  if (errorVerif === true) {
+    return false;
+  } else {
+    let messageData = {
+      prenom:  prenom.value,
+    }
+  }  
 }
 
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
-  }
+}
   
