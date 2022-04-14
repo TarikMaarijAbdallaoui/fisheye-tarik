@@ -71,6 +71,14 @@ async function displayModal(){
     form.appendChild(button);
 }
 
+// fonction validate: elle vérifie les champs du formulaire
+
+function validate(){
+  var errorVerif = false;
+  var regex1 = /^[A-Za-z\s]+$/;
+  var regex2 = /^[^@\s]+@[^@\.\s]+(\.[^@\.\s]+)+$/;
+}
+
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
