@@ -69,6 +69,22 @@ async function displayModal(){
     form.appendChild(emailDiv);
     form.appendChild(textDiv);
     form.appendChild(button);
+
+  //  créer un événement pour valider les champs du formulaire
+  
+  const sendButton = document.querySelector("#contact-form .contact_button");
+
+  sendButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (validate()) {
+      const modalForm = document.querySelector(".modal");
+      modalForm.innerHTML = `<h2 style="color: white">Message envoyé avec succès.
+      <i style="color: green" class="fa-solid fa-check"></i></h2>`;
+      setTimeout(() => {
+        closeModal();}, 2500);
+    }  
+  });
 }
 
 // fonction validate: elle vérifie les champs du formulaire
