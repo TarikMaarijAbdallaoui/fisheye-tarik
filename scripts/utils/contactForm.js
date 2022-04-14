@@ -192,6 +192,7 @@ function validate(){
       email: emailVerif.value,
       message: message.value,
     }
+    console.table(messageData);
     return true;
   }  
 }
