@@ -77,6 +77,22 @@ function validate(){
   var errorVerif = false;
   var regex1 = /^[A-Za-z\s]+$/;
   var regex2 = /^[^@\s]+@[^@\.\s]+(\.[^@\.\s]+)+$/;
+
+  const prenom = document.getElementById("prenom");
+
+   // check prenom
+  if(
+  prenom.value === "" ||
+  prenom.value.length < 2 ||
+  !prenom.value.match(regex1)
+  ) {
+  document.getElementById("prenom_error").innerHTML =
+  "Veuillez entrer au moins 2 caractères valables.";
+  prenom.focus(); prenom.style.border = "2px solid #fe142f";
+  } else {
+  document.getElementById("prenom_error").innerHTML = "";
+  prenom.style.border = "0px solid red";
+  }
 }
 
 function closeModal() {
