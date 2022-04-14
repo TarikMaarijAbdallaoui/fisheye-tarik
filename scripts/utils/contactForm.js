@@ -38,8 +38,13 @@ async function displayModal(){
     const inputNom = document.createElement("input");
     inputNom.setAttribute("tabindex", `${indexNumber += 1}`)
     inputNom.setAttribute("type", "text");
+    inputNom.setAttribute("id", "nom");
+    const errorNom = document.createElement("span");
+    errorNom.setAttribute("id", "nom_error");
+    errorNom.style.color = "red";
     nomDiv.appendChild(nomLabel);
     nomDiv.appendChild(inputNom);
+    nomDiv.appendChild(errorNom);
 
     const emailDiv = document.createElement("div");
     const emailLabel = document.createElement("label");
@@ -49,6 +54,7 @@ async function displayModal(){
     inputEmail.setAttribute("type", "email");
     emailDiv.appendChild(emailLabel);
     emailDiv.appendChild(inputEmail);
+    
 
     const textDiv = document.createElement("div");
     const textLabel = document.createElement("label");
@@ -95,6 +101,7 @@ function validate(){
   var regex2 = /^[^@\s]+@[^@\.\s]+(\.[^@\.\s]+)+$/;
 
   const prenom = document.getElementById("prenom");
+  const nom = document.getElementById("nom");
 
    // check prenom
   if(
@@ -105,9 +112,29 @@ function validate(){
   document.getElementById("prenom_error").innerHTML =
   "Veuillez entrer au moins 2 caractères valables.";
   prenom.focus(); prenom.style.border = "2px solid #fe142f";
+
+  errorVerif = true;
+
   } else {
   document.getElementById("prenom_error").innerHTML = "";
   prenom.style.border = "0px solid red";
+  }
+
+  // check nom
+  if (
+    nom.value === "" ||
+    nom.value.length < 2 ||
+    !nom.value.match(regex1)
+    ) {
+    document.getElementById("nom_error").innerHTML =
+    "Veuillez entrer au moins 2 caractères valables.";
+    nom.focus(); nom.style.border = "2px solid #fe142f";
+    
+    errorVerif = true;
+
+  } else {
+    document.getElementById("nom_error").innerHTML = "";
+    nom.style.border = "0px solid red";
   }
 
   // message de confirmation
@@ -116,7 +143,9 @@ function validate(){
   } else {
     let messageData = {
       prenom:  prenom.value,
+      /*nom:  nom.value,*/
     }
+    return true;
   }  
 }
 
